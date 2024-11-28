@@ -12,7 +12,11 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors(
+    {
+        origin: 'http://localhost:3000', // Allow requests from your React app
+      }
+));
 app.use(express.json());
 app.use('/uploads', express.static('uploads')); // Serve uploaded images
 
